@@ -1,0 +1,4 @@
+{
+    "db": "mongodb://localhost/FurnitureProducts",
+    "jwtPrivateKey": "SomePrivateKey"
+}
