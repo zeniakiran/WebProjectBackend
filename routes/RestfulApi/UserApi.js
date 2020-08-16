@@ -30,7 +30,10 @@ router.post("/login", async (req, res) => {
   let user = await UserModel.findOne({ email: req.body.email });
   if (!user) return res.status(400).send("User Not Registered");
   let isValid = await bcrypt.compare(req.body.password, user.password);
-  if (!isValid) return res.status(401).send("Invalid Password");
+  if (!isValid){
+    return res.status(401).send("Invalid Password");
+    
+  } 
   let token = jwt.sign(
     { _id: user._id, name: user.name, role: user.role },
     config.get("jwtPrivateKey")

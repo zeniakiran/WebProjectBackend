@@ -115,7 +115,7 @@ router.get("/Tables", async (req, res) => {
 
 router.get("/Wardrobes", async (req, res) => {
     try {
-        let productsFromDb = await Furniture.find({type : "Wardrobes"});
+        let productsFromDb = await Furniture.find({type : "Wardrobe"});
         if(!productsFromDb) 
             return res.send("There are currently no products");
         return res.send(productsFromDb);
